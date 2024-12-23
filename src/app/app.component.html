@@ -1,12 +1,6 @@
 
-
+<app-navigation></app-navigation>
 <section>
-        <div class="inputData">
-            <app-header/>
-            <app-user-input (calculate)="calculate($event)"/>
-        </div>
-        <div class="sidebar">
-            <app-results [result]="resultData" [detailResult]="detailResultData"/>
-        </div>
+        <app-rent-buy-calculator></app-rent-buy-calculator>
 </section>
 <app-footer/>

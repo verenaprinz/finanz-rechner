@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { DetailResult, ResultData } from '../input.module';
+import { DetailResult, ResultData } from '../../input.module';
 import { CurrencyPipe } from '@angular/common';
 
 @Component({

@@ -1,0 +1,8 @@
+
+<div class="inputData">
+    <app-header/>
+    <app-user-input (calculate)="calculate($event)"/>
+</div>
+<div class="sidebar">
+    <app-results [result]="resultData" [detailResult]="detailResultData"/>
+</div>

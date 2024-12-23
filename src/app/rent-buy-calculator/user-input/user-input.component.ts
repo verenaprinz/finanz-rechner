@@ -2,7 +2,7 @@ import { Component, EventEmitter,Output, ChangeDetectionStrategy, SimpleChanges,
 import { FormsModule } from '@angular/forms';
 import { Options } from '@angular-slider/ngx-slider';
 import { NgxSliderModule } from '@angular-slider/ngx-slider'
-import { UserInputs } from '../input.module';
+import { UserInputs } from '../../input.module';
 
 @Component({
   selector: 'app-user-input',

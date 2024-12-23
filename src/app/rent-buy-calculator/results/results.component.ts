@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { CurrencyPipe } from '@angular/common';
-import {  DetailResult, ResultData } from '../input.module';
+import {  DetailResult, ResultData } from '../../input.module';
 import { ResultDetailComponent } from "../result-detail/result-detail.component";
 
 @Component({
@@ -11,14 +11,6 @@ import { ResultDetailComponent } from "../result-detail/result-detail.component"
   styleUrl: './results.component.css'
 })
 export class ResultsComponent {
-  // @Input() result?: {
-  //   assetRent:number,
-  //   assetBuy:number,
-  //   advantage:string,
-  //   advantageValue: number,
-  //   years:number
-  // }
-
   @Input() result?: ResultData;
   @Input() detailResult?: DetailResult;
   isShowDetails = false;
