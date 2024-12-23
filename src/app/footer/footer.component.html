@@ -1,0 +1,22 @@
+
+@if (isShowImpressum) {
+    <app-impressum (close)="onCloseImpressum()"/>
+}
+@if (isShowTermsOfUse) {
+    <app-terms-of-use (close)="onCloseTermsOfUse()"/>
+}
+
+<footer class="main-footer">
+    <nav>
+        <ul class="main-footer__links">
+            <li class="main-footer__link">
+                <!-- <a href="#">Impresssum</a> -->
+                 <button (click)="onShowImpressum()">Impressum</button>
+            </li>
+            <li class="main-footer__link">
+                <!-- <a href="#">Nutzungsbedingungen</a> -->
+                 <button (click)="onShowTermsOfUse()">Nutzungsbedingungen</button>
+            </li>
+        </ul>
+    </nav>
+</footer>

@@ -1,0 +1,108 @@
+
+@if (!detailResult||!result) {
+    <div class="backdrop" (click)="onCancel()"></div>
+    <div class="calculation">
+        <h1>Detaillierte Berechnung</h1>
+
+    </div>
+}@else{
+<div class="backdrop" (click)="onCancel()"></div>
+<div class="calculation">
+    <h1>Detaillierte Berechnung</h1>
+    <div class="result-table">
+        <table>
+            <tr>
+                <th></th>
+                <th>Kaufen</th>
+                <th>Mieten</th>
+            </tr>
+            <tr>
+                <td>Eigenkapital</td>
+                <td>{{detailResult.capital| currency:'EUR':'symbol':'1.0-0'}}</td>
+                <td>{{detailResult.capital| currency:'EUR':'symbol':'1.0-0'}}</td>
+            </tr>
+            <tr>
+                <td>Kaufpreis inkl. Kaufnebenkosten</td>
+                <td>{{detailResult.houseCost| currency:'EUR':'symbol':'1.0-0'}}</td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <td>Erforderliches Darlehen</td>
+                <td>{{detailResult.neededLoan| currency:'EUR':'symbol':'1.0-0'}}</td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <td>Monatliche Rate </td>
+                <td>{{detailResult.monthlyRate| currency:'EUR':'symbol':'1.0-0'}}</td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <td class="seperate">Laufzeit des Darlehens</td>
+                <td class="seperate">{{detailResult.loanTerm}} Jahre</td>
+                <td class="seperate">-</td>
+            </tr>
+            <tr>
+                <td>Summe Rate und Instandhaltung</td>
+                <td>{{detailResult.sumMoneyEarned| currency:'EUR':'symbol':'1.0-0'}}</td>
+                <td>{{detailResult.sumMoneyEarned| currency:'EUR':'symbol':'1.0-0'}}</td>
+            </tr>
+            <tr>
+                <td>Summe gezahlte Miete (ohne Nebenkosten)</td>
+                <td>-</td>
+                <td class="negativ">-{{detailResult.paidRent| currency:'EUR':'symbol':'1.0-0'}}</td>
+            </tr>
+            <tr>
+                <td>Erhaltene Zinsen</td>
+                <td>{{detailResult.receivedInterestHouse| currency:'EUR':'symbol':'1.0-0'}}</td>
+                <td>{{detailResult.receivedInterestRenting| currency:'EUR':'symbol':'1.0-0'}}</td>
+            </tr>
+            <tr>
+                <td>Kosten für Instandhaltung</td>
+                <td class="negativ">-{{detailResult.maintenanceCost| currency:'EUR':'symbol':'1.0-0'}}</td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <td>Summe gezahlte Zinsen</td>
+                <td class="negativ">-{{detailResult.paidInteres| currency:'EUR':'symbol':'1.0-0'}}</td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <td>Summe Tilgungszahlung</td>
+                <td class="negativ">-{{detailResult.loanPayment| currency:'EUR':'symbol':'1.0-0'}}</td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <td>Restschulden nach {{result.years}} Jahren</td>
+                <td class="negativ">-{{detailResult.residualDept| currency:'EUR':'symbol':'1.0-0'}}</td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <td>Haus Verkaufspreis</td>
+                <td>{{detailResult.houseSellPrice| currency:'EUR':'symbol':'1.0-0'}}</td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <td class="seperate">Vermögen nach {{result.years}} Jahren</td>
+                <td class="seperate">{{result.assetBuy| currency:'EUR':'symbol':'1.0-0'}}</td>
+                <td class="seperate">{{result.assetRent| currency:'EUR':'symbol':'1.0-0'}}</td>
+            </tr>
+            @if (detailResult.advantage == 'rent'){
+            <tr>
+                <td class="overall-result">Vorteil Mieten</td>
+                <td class="negativ overall-result">-{{result.advantageValue| currency:'EUR':'symbol':'1.0-0'}}</td>
+                <td class="overall-result">{{result.advantageValue| currency:'EUR':'symbol':'1.0-0'}}</td>
+            </tr>
+            }@else if (detailResult.advantage == 'buy') {
+                <tr>
+                    <td class="overall-result">Vorteil Kaufen</td>
+                    <td class="overall-result">{{result.advantageValue| currency:'EUR':'symbol':'1.0-0'}}</td>
+                    <td class="negativ overall-result">-{{result.advantageValue| currency:'EUR':'symbol':'1.0-0'}}</td>
+                </tr>
+
+            }
+
+        </table>
+        <button type="button" (click)="onCancel()">Schließen</button>
+    </div>
+</div>
+}

@@ -1,0 +1,85 @@
+
+<form>
+    <div>
+        <h1>Allgemeine Angaben</h1>
+        <label>Haus Preis [€]</label>
+        <div class="input-group">
+            <input id="house-price" name="house-price" type="number" [(ngModel)]="enteredHousePrice" (change)="onChange()" />
+            <ngx-slider class="custom-slider" [(value)]="enteredHousePrice" 
+            [options]="{floor: 0, ceil: 1000000, showTicks: true, tickStep: 100000, showTicksValues: true, tickValueStep: 500000}"
+            (userChangeEnd)="onChange()"></ngx-slider>
+        </div>
+        <label>Monatliche Rate für den Hauskredit [€]</label>
+        <div class="input-group">
+            <input id="mortgage-rate" name="mortgage-rate" type="number" [(ngModel)]="enteredMonthlyRate" (change)="onChange()" />
+            <ngx-slider class="custom-slider" [(value)]="enteredMonthlyRate" 
+            [options]="{floor: 0, ceil: 10000, showTicks: true, tickStep: 1000, showTicksValues: true, tickValueStep: 5000}" (userChangeEnd)="onChange()"></ngx-slider>
+        </div>
+        <p class="monthly-total">monatlichen Gesamtkosten für Rate und Instandhaltung ist {{totalMonthlyCostHouse()}}€</p>
+        <label>Instandhaltung [%]</label>
+        <div class="input-group">
+            <input id="maintenance" name="maintenance" type="number" [(ngModel)]="enteredMaintenance" (change)="onChange()"  step="0.1" />
+            <ngx-slider class="custom-slider" [(value)]="enteredMaintenance" 
+            [options]="{step: 0.1, floor: 0, ceil: 20, showTicks: true, tickStep: 2, showTicksValues: true, tickValueStep: 10}" (userChangeEnd)="onChange()"></ngx-slider>
+        </div>
+        <p>entspricht {{monthlyMaintenance()}}€ pro Monat</p>
+        <label>Kaltmiete [€]</label>
+        <div class="input-group">
+            <input id="rent" name="rent" type="number" [(ngModel)]="enteredRent" (change)="onChange()" />
+            <ngx-slider class="custom-slider" [(value)]="enteredRent" 
+            [options]="{floor: 0, ceil: 10000, showTicks: true, tickStep: 1000, showTicksValues: true, tickValueStep: 5000}" (userChangeEnd)="onChange()"></ngx-slider>
+        </div>
+        <label>Eigenkapital [€]</label>
+        <div class="input-group">
+            <input id="equity" name="equity" type="number" [(ngModel)]="enteredEquityCapital" (change)="onChange()" />
+            <ngx-slider class="custom-slider" [(value)]="enteredEquityCapital" 
+            [options]="{floor: 0, ceil: 600000, showTicks: true, tickStep: 60000, showTicksValues: true, tickValueStep: 300000}" (userChangeEnd)="onChange()"></ngx-slider>
+        </div>
+        <label>Vergleichszeitraum [Jahre]</label>
+        <div class="input-group">
+            <input id="time" name="time" type="number" [(ngModel)]="enteredTime" (change)="onChange()" />
+            <ngx-slider class="custom-slider" [(value)]="enteredTime" 
+            [options]="{floor: 0, ceil: 40, showTicks: true, tickStep: 4, showTicksValues: true, tickValueStep: 20}" (userChangeEnd)="onChange()"></ngx-slider>
+        </div>
+    </div>
+    <hr>
+    <div>
+        <h1>Angaben zum Kaufen</h1>
+        <label>Kaufnebenkosten [%]</label>
+        <div class="input-group">
+            <input id="purchase-costs" name="purchase-costs" type="number" [(ngModel)]="enteredPurchaseCosts" (change)="onChange()" step="0.1"  />
+            <ngx-slider class="custom-slider" [(value)]="enteredPurchaseCosts" 
+            [options]="{step: 0.1, floor: 0, ceil: 20, showTicks: true, tickStep: 2, showTicksValues: true, tickValueStep: 10}" (userChangeEnd)="onChange()"></ngx-slider>
+        </div>
+        <label>Sollzins [%]</label>
+        <div class="input-group">
+            <input id="intresrrate" name="intresrrate" type="number" [(ngModel)]="enteredInteresRate" (change)="onChange()" step="0.1"  />
+            <ngx-slider class="custom-slider" [(value)]="enteredInteresRate" 
+            [options]="{step: 0.1, floor: 0, ceil: 15, showTicks: true, tickStep: 1, showTicksValues: true, tickValueStep: 5}" (userChangeEnd)="onChange()"></ngx-slider>
+        </div>
+    </div>
+    <hr>
+    <div>
+        <h1>Abschätzungen</h1>
+        <label>Wertsteigerung des Hauses [%]</label>
+        <div class="input-group">
+            <input id="increase-house" name="increase-house" type="number" [(ngModel)]="enteredValueIncrease" (change)="onChange()"  step="0.1" />
+            <ngx-slider class="custom-slider" [(value)]="enteredValueIncrease" 
+            [options]="{step: 0.1, floor: 0, ceil: 15, showTicks: true, tickStep: 1, showTicksValues: true, tickValueStep: 5}" (userChangeEnd)="onChange()"></ngx-slider>
+        </div>
+        <label>jährliche Mietsteigerung [%]</label>
+        <div class="input-group">
+            <input id="increase-rent" name="increase-rent" type="number" [(ngModel)]="enteredRentIncrease" (change)="onChange()" step="0.1" />
+            <ngx-slider class="custom-slider" [(value)]="enteredRentIncrease" 
+            [options]="{step: 0.1, floor: 0, ceil: 15, showTicks: true, tickStep: 1, showTicksValues: true, tickValueStep: 5}" (userChangeEnd)="onChange()"></ngx-slider>
+        </div>
+        <label>Erwartete Rendite [%]</label>
+        <div class="input-group">
+            <input id="return" name="return" type="number" [(ngModel)]="enteredExpectedReturn" (change)="onChange()" step="0.1"  />
+            <ngx-slider class="custom-slider" [(value)]="enteredExpectedReturn" 
+            [options]="{step: 0.1, floor: 0, ceil: 15, showTicks: true, tickStep: 1, showTicksValues: true, tickValueStep: 5}" (userChangeEnd)="onChange()"></ngx-slider>
+        </div>
+    </div>
+
+
+</form>

@@ -1,0 +1,28 @@
+@if (isShowDetails) {
+    <app-result-detail (close)="onCloseDetails()" [detailResult]="detailResult" [result]="result"/>
+}
+
+@if (!result){
+    <div class="result-overview">
+    <div class="result rent">
+    <h1>Ergebniss</h1>
+    </div>
+
+</div>
+}@else {
+<div class="result-overview">
+    <div class="result {{result.advantage}}">
+        <h1>Ergebniss</h1>
+        @if (result.advantage == 'rent') {
+            <h2>Nach {{result.years}} Jahren hat Mieten einen Vorteil von {{result.advantageValue| currency:'EUR'}}</h2>
+        }@else if (result.advantage == 'buy') {
+            <h2>Nach {{result.years}} Jahren hat Kaufen einen Vorteil von {{result.advantageValue| currency:'EUR'}}</h2>
+        }@else if (result.advantage == 'neither') {
+        <h2>Nach {{result.years}} Jahren hat weder Kaufen noch Mieten einen eindeutigen Vorteil</h2>
+        }
+            <p> Vermögen bei Hauskauf {{result.assetBuy | currency:'EUR'}} <br>
+                Vermögen bei Mieten {{result.assetRent | currency:'EUR'}}</p>
+    </div>
+    <button class="calc-detail" (click)="onShowDetails()" >Details zur Berechnung</button>
+</div>
+}
