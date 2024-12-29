@@ -54,7 +54,7 @@ export class RentBuyCalculatorComponent {
     var sumCalculated = 0
 
     for (let index = 1; index <= data.time; index++) {
-      console.log(index)
+      // console.log(index)
       paidRent += newRent * 12
       // console.log("newRent " +newRent)
       // console.log("paidRent " +paidRent)
@@ -79,7 +79,7 @@ export class RentBuyCalculatorComponent {
           
         }
         if (residualDept < 0){
-          console.log("Payed " + residualDept + " too much")
+          // console.log("Payed " + residualDept + " too much")
           loanPayment += residualDept
           moneyNotPaidForCreadit += -residualDept
           receivedInterestHouse += (moneyNotPaidForCreadit * data.return/100)
@@ -88,7 +88,7 @@ export class RentBuyCalculatorComponent {
         moneyNotPaidForCreadit += data.totalMonthlyCost * 12
         receivedInterestHouse += (moneyNotPaidForCreadit * data.return/100)
       }
-      console.log("residualDept " +residualDept)
+      // console.log("residualDept " +residualDept)
       sumCalculated += annualRepayment
     }
     // TODO: maintenancekosten noch mit berechnen bei Mieten

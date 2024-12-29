@@ -28,6 +28,19 @@
     color: #ccc;
 }
 
+a{
+    background: none;
+    border: none;
+    color: white;
+    font: inherit;
+    cursor: pointer;
+}
+
+a:hover,
+a:active {
+    color: #ccc;
+}
+
 button{
     background: none;
     border: none;
