@@ -1,0 +1,45 @@
+<form>
+    <div>
+        <label>Darlehensbetrag [€]</label>
+        <div class="input-group">
+            <input id="loan-amount" name="loan-amount" type="number" [(ngModel)]="loanAmount" (change)="onChange()" />
+            <ngx-slider class="custom-slider" [(value)]="loanAmount" 
+            [options]="{floor: 0, ceil: 1000000, showTicks: true, tickStep: 100000, showTicksValues: true, tickValueStep: 500000}"
+            (userChangeEnd)="onChange()"></ngx-slider>
+        </div>
+        <label>Effektiver Jahreszinssatz [%]</label>
+        <div class="input-group">
+            <input id="intresr-rate" name="intresr-rate" type="number" [(ngModel)]="intresrRate" (change)="onChange()" />
+            <ngx-slider class="custom-slider" [(value)]="intresrRate" 
+            [options]="{step: 0.1, floor: 0, ceil: 15, showTicks: true, tickStep: 1, showTicksValues: true, tickValueStep: 5}"
+            (userChangeEnd)="onChange()"></ngx-slider>
+        </div>
+        <label>Monatliche Rate für den Kredit [€]</label>
+        <div class="input-group">
+            <input id="mortgage-rate" name="mortgage-rate" type="number" [(ngModel)]="monthlyRate" (change)="onChange()" />
+            <ngx-slider class="custom-slider" [(value)]="monthlyRate" 
+            [options]="{floor: 0, ceil: 10000, showTicks: true, tickStep: 1000, showTicksValues: true, tickValueStep: 5000}" (userChangeEnd)="onChange()"></ngx-slider>
+        </div>
+    </div>
+    <div>
+        <label>Sondertilgung [€]</label>
+
+        <label class="container">Keine
+            <input type="radio" checked="checked" name="special-repayment" value="0" (change)="onChange()">
+            <span class="checkmark"></span>
+        </label>
+        <label class="container">Jährliche Sondertilgung
+          <input type="radio" name="special-repayment" value="1" (change)="onChange()">
+          <span class="checkmark"></span>
+        </label>
+        <div class="special-input-group">
+            <input id="special-repayment-yearly" name="special-repayment-yearly" type="number" [(ngModel)]="specialRepaymentYearly" (change)="onChange()" />
+            <ngx-slider class="custom-slider" [(value)]="specialRepaymentYearly" 
+            [options]="{floor: 0, ceil: 10000, showTicks: true, tickStep: 1000, showTicksValues: true, tickValueStep: 5000}" (userChangeEnd)="onChange()"></ngx-slider>
+        </div>
+        <label class="container">Individuell
+          <input type="radio" name="special-repayment" value="2" (change)="onChange()">
+          <span class="checkmark"></span>
+        </label>
+    </div>
+</form>

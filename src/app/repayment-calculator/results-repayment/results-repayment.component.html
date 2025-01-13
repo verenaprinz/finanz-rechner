@@ -1,0 +1,21 @@
+@if (!results){
+    <div class="result-overview">
+    <h1>Ergebniss</h1>
+</div>
+}@else {
+<div class="result-overview">
+    <div class="result">
+       <h1> Ergebniss</h1>
+       @if (results.problemMessage ==""){
+       <p>
+        Der Kredit ist nach <b>{{results.loanTermYears}} Jahren und {{results.loanTermMonath}} Monaten</b> abgezahlt.
+        <br>
+        Es wurden <b>{{results.paidTotal| currency:'EUR'}}</b> insgesamt gezahlt, davon <b>{{results.paidInterests| currency:'EUR'}}</b> an Zinsen.
+       </p>
+    }@else{
+        {{results.problemMessage}}
+    }
+    </div>
+    <button class="calc-detail"  >Details zur Berechnung</button>
+</div>
+}

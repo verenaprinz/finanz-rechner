@@ -1,0 +1,10 @@
+header {
+    text-align: center;
+    margin: 3rem auto;
+    max-width: 40rem;
+  }
+ 
+  header h1 {
+    font-size: 3rem;
+    color: #006452;
+  }

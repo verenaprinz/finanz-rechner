@@ -1,0 +1,7 @@
+<div class="inputData">
+    <app-header-repayment/>
+    <app-user-input-repayment (calculateRepayment)="calclulateRepayment($event)"/>
+</div>
+<div class="sidebar">
+    <app-results-repayment [results]="repaymentResults" />
+</div>
