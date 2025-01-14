@@ -1,1 +1,74 @@
-<p>results-details-repayment works!</p>
+@if (!yearlyResult) {
+    <div class="backdrop" (click)="onCancel()"></div>
+    <div class="calculation">
+        <h1>Tilgungsplan</h1>
+
+    </div>
+}@else{
+<div class="backdrop" (click)="onCancel()"></div>
+<div class="calculation">
+    <h1>Tilgungsplan</h1>
+    <div  class="result-table">
+        <table>
+            <thead>
+                <tr>
+                    <th>Jahr</th>
+                    <th>gezahlte Zinsen</th>
+                    <th>gezahlte Tilgung</th>
+                    <th>Restschulden am Ende des Jahres</th>
+
+                </tr>
+            </thead>
+            <tbody>
+            @for (yresult of yearlyResult; track yresult.year) {
+                <tr>
+                    <td>
+                        <details>
+                            <summary>{{yresult.year}}</summary>
+
+                        <!-- <thead>
+                            <tr>
+                                <th>Monat</th>
+                                <th>gezahlte Zinsen</th>
+                                <th>gezahlte Tilgung</th>
+                                <th>Restschulden am Ende des Monats</th>
+
+                            </tr>
+                        </thead>
+                            <tr>
+                                <td>{{yresult.year}}</td>
+                                <td>{{yresult.yearlyPaidIntrest| currency:'EUR':'symbol':'1.0-0'}}</td>
+                                <td>{{yresult.yearlyRepayment| currency:'EUR':'symbol':'1.0-0'}}</td>
+                                <td>{{yresult.residualDeptEoY| currency:'EUR':'symbol':'1.0-0'}}</td>
+                            </tr> -->
+                        </details></td>
+                    <td>{{yresult.yearlyPaidIntrest| currency:'EUR':'symbol':'1.0-0'}}</td>
+                    <td>{{yresult.yearlyRepayment| currency:'EUR':'symbol':'1.0-0'}}</td>
+                    <td>{{yresult.residualDeptEoY| currency:'EUR':'symbol':'1.0-0'}}</td>
+                </tr>
+            }
+        </tbody>
+        </table>
+
+
+        <!-- <div class="t-header">
+                <div class="th">Jahr</div>
+                <div class="th">gezahlte Zinsen</div>
+                <div class="th">gezahlte Tilgung</div>
+                <div class="th">Restschulden am Ende des Jahres</div>
+            </div>
+            @for (yresult of yearlyResult; track yresult.year) {
+                    <details>
+                        <summary>
+                    {{yresult.year}}
+                    {{yresult.yearlyPaidIntrest| currency:'EUR':'symbol':'1.0-0'}}
+                    {{yresult.yearlyRepayment| currency:'EUR':'symbol':'1.0-0'}}
+                    {{yresult.residualDeptEoY| currency:'EUR':'symbol':'1.0-0'}}
+                </summary>
+                <p>Hier monats details</p>
+            </details>
+            } -->
+    <button type="button" (click)="onCancel()">Schließen</button>
+</div>
+</div>
+}

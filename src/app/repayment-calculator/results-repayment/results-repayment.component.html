@@ -1,3 +1,8 @@
+@if (isShowDetails) {
+    <app-results-details-repayment (close)="onCloseDetails()" [yearlyResult]="yearlyResult" />
+}
+
+
 @if (!results){
     <div class="result-overview">
     <h1>Ergebniss</h1>
@@ -16,6 +21,6 @@
         {{results.problemMessage}}
     }
     </div>
-    <button class="calc-detail"  >Details zur Berechnung</button>
+    <button class="calc-detail" (click)="onShowDetails()"> Details Tilgungsplan</button>
 </div>
 }

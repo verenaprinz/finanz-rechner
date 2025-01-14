@@ -25,11 +25,11 @@
         <label>Sondertilgung [€]</label>
 
         <label class="container">Keine
-            <input type="radio" checked="checked" name="special-repayment" value="0" (change)="onChange()">
+            <input type="radio" [checked]="true" name="special-repayment" value="0" (change)="onChangeS($event)">
             <span class="checkmark"></span>
         </label>
         <label class="container">Jährliche Sondertilgung
-          <input type="radio" name="special-repayment" value="1" (change)="onChange()">
+          <input type="radio" [checked]="false" name="special-repayment" value="1" (change)="onChangeS($event)">
           <span class="checkmark"></span>
         </label>
         <div class="special-input-group">
@@ -37,9 +37,9 @@
             <ngx-slider class="custom-slider" [(value)]="specialRepaymentYearly" 
             [options]="{floor: 0, ceil: 10000, showTicks: true, tickStep: 1000, showTicksValues: true, tickValueStep: 5000}" (userChangeEnd)="onChange()"></ngx-slider>
         </div>
-        <label class="container">Individuell
-          <input type="radio" name="special-repayment" value="2" (change)="onChange()">
+        <!-- <label class="container">Individuell
+          <input type="radio"[checked]="false" name="special-repayment" value="2" (change)="onChangeS($event)">
           <span class="checkmark"></span>
-        </label>
+        </label> -->
     </div>
 </form>

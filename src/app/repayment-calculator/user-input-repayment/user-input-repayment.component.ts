@@ -18,6 +18,7 @@ export class UserInputRepaymentComponent {
   monthlyRate = 2000;
   specialRepaymentYearly = 0;
 
+  selectedSRepayment: string='0';
 
   ngOnInit (){
     this.change()
@@ -25,6 +26,12 @@ export class UserInputRepaymentComponent {
 
   onChange(){
     this.change()
+  }
+
+  onChangeS(event:any){
+    this.selectedSRepayment=event.target.value;
+    this.change()
+    console.log(this.selectedSRepayment)
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -36,9 +43,12 @@ export class UserInputRepaymentComponent {
       loanAmount: this.loanAmount,
       intresrRate: this.intresrRate,
       monthlyRate: this.monthlyRate,
+      sRepayment:this.selectedSRepayment,
       specialRepaymentYearly: this.specialRepaymentYearly,
       
     })
+    console.log(this.specialRepaymentYearly)
   }
+
 
 }
