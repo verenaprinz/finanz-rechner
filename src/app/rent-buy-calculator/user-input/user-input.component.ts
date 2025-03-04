@@ -14,18 +14,8 @@ import { UserInputs } from '../../input.module';
   styleUrl: './user-input.component.css'
 })
 export class UserInputComponent {
-
-  // minValue: number = 10;
-  // maxValue: number = 90;
-  // options: Options = {
-  //   floor: 0,
-  //   ceil: 100,
-  //   step: 10,
-  //   showTicks: true
-  // };
-
-
   @Output() calculate= new EventEmitter<UserInputs>();
+  
   enteredHousePrice = 500000
   enteredRent = 1800
   enteredMonthlyRate = 2500

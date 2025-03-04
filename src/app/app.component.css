@@ -1,25 +1,19 @@
+html, body{
+  height: 100%;
+  margin: 0;
+}
+
+section {
+  flex: 1; /* Der Hauptinhalt nimmt den verbleibenden Platz ein */
+  display: block; 
+  min-height: calc(100vh - 4.1rem - 9rem);
+}
+
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
-
-.inputData {
-  position: relative;
-  margin-top: 3rem;
-  width:65%;  
-  float:left;
-}
-
-.sidebar{
-    position: fixed;
-    float: right;
-    width: 30%;
-
-  /* top: 80px; 
-  right: 20px;  */
-  top: 2rem; 
-  right: 1rem; 
-}
-
 
 /* Clear floats after the columns */
 section::after {
@@ -28,24 +22,3 @@ section::after {
   clear: both;
 }
 
-@media (max-width:510px) {
-  .inputData {
-    width:100%;  
-  }
-
-  .sidebar{
-    display: inline-flex;
-      position: fixed;
-      /* float: bottom; */
-      width: 100%;
-  
-    /* top: 80px; 
-    right: 20px;  */
-    /* top: 2rem; 
-    right: 1rem;  */
-    top:auto;
-    right: auto;
-  bottom: 0;
-  left: 0;
-  }
-}

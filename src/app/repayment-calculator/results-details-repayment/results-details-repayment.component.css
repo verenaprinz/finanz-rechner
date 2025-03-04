@@ -43,6 +43,7 @@ table{
     width:80%;
     vertical-align: middle;
     margin: 1rem;
+    text-align: center;
 }
 
 th, td {

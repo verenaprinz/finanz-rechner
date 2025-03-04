@@ -23,8 +23,9 @@
             @for (yresult of yearlyResult; track yresult.year) {
                 <tr>
                     <td>
-                        <details>
-                            <summary>{{yresult.year}}</summary>
+                        {{yresult.year + 1}}.
+                        <!-- <details>
+                            <summary>{{yresult.year}}</summary> -->
 
                         <!-- <thead>
                             <tr>
@@ -41,7 +42,8 @@
                                 <td>{{yresult.yearlyRepayment| currency:'EUR':'symbol':'1.0-0'}}</td>
                                 <td>{{yresult.residualDeptEoY| currency:'EUR':'symbol':'1.0-0'}}</td>
                             </tr> -->
-                        </details></td>
+                        <!-- </details> -->
+                    </td>
                     <td>{{yresult.yearlyPaidIntrest| currency:'EUR':'symbol':'1.0-0'}}</td>
                     <td>{{yresult.yearlyRepayment| currency:'EUR':'symbol':'1.0-0'}}</td>
                     <td>{{yresult.residualDeptEoY| currency:'EUR':'symbol':'1.0-0'}}</td>

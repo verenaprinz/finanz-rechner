@@ -9,7 +9,7 @@
         </div>
         <label>Effektiver Jahreszinssatz [%]</label>
         <div class="input-group">
-            <input id="intresr-rate" name="intresr-rate" type="number" [(ngModel)]="intresrRate" (change)="onChange()" />
+            <input id="intresr-rate" name="intresr-rate" type="number" [(ngModel)]="intresrRate" step="0.1" (change)="onChange()" />
             <ngx-slider class="custom-slider" [(value)]="intresrRate" 
             [options]="{step: 0.1, floor: 0, ceil: 15, showTicks: true, tickStep: 1, showTicksValues: true, tickValueStep: 5}"
             (userChangeEnd)="onChange()"></ngx-slider>

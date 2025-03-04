@@ -50,7 +50,7 @@ export class RepaymentCalculatorComponent {
     while (residualDept > 0) {
       monthlyInterestPayment = residualDept * interestRate/12
       if (monthlyInterestPayment >=monthlyPayment) {
-        const minPayment = +monthlyInterestPayment + 1
+        const minPayment = (+monthlyInterestPayment + 1).toFixed(2)
         problemMessage = "Die monatliche Rate deckt nicht mal die anfallenden Zinsen, für das gewünschte Darlehen ist eine monatliche Rate von MINDESTENS " + minPayment +"€ notwendig. Mehr wäre besser."
         break
       }
@@ -68,8 +68,9 @@ export class RepaymentCalculatorComponent {
       counterMonth += 1
 
       if (residualDept<0) {
-        yearlyRepayment -= residualDept
-        monthlyRepayment -= residualDept
+        //residual dept is negativ, that is why it is added
+        yearlyRepayment += residualDept
+        monthlyRepayment += residualDept
         residualDept = 0
         endOfLoop = true
       }
@@ -90,10 +91,9 @@ export class RepaymentCalculatorComponent {
           monthlyRepayment += data.specialRepaymentYearly
         }
         if (residualDept<0) {
-          yearlyRepayment -= residualDept
+          yearlyRepayment += residualDept
           residualDept = 0
         }
-        counterYear +=1
         annualData.push({
           year:counterYear,
           yearlyPaidIntrest: yearlyPaidIntrest,
@@ -105,11 +105,13 @@ export class RepaymentCalculatorComponent {
           monthlyData
         })
         // this.monthlyResult[counterYear]=monthlyData
-
+        if (counterMonth==12){
+        counterYear +=1
         monthlyData = []
         counterMonth = 0
         yearlyPaidIntrest = 0
         yearlyRepayment = 0
+      }
       }
       //TODO: last year calculation here check residualDept <0
     }

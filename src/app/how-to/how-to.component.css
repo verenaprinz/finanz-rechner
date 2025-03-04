@@ -1,0 +1,20 @@
+h1{
+    font-size: 2rem;
+}
+
+h1, h2, h3{
+    color: #006452;
+    text-align: left;
+}
+
+.how-to{
+    max-width: 60rem;
+    vertical-align: middle;
+    margin: 5rem auto;
+}
+
+hr{
+    border-top:2px #006452 solid;
+    margin: 2rem 0;
+
+}
