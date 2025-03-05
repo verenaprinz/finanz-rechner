@@ -12,7 +12,7 @@
 }@else {
 <div class="result-overview">
     <div class="result {{result.advantage}}">
-        <h1>Ergebniss</h1>
+        <h1>Ergebnis</h1>
         @if (result.advantage == 'rent') {
             <h2>Nach {{result.years}} Jahren hat Mieten einen Vorteil von {{result.advantageValue| currency:'EUR'}}</h2>
         }@else if (result.advantage == 'buy') {
